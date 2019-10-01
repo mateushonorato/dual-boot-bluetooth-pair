@@ -6,7 +6,7 @@ def _parse_args():
     """Parse arguments."""
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        '--reg_path', help='Path to reg file.', default='keys.reg')
+        '--reg_path', help='Path to reg file.', default='/media/mateus/Windows/Windows/System32/config/SYSTEM')
 
     return parser.parse_args()
 
@@ -75,14 +75,15 @@ def _process_reg_file(config):
         print('\n')
         print('Dir Name: /var/lib/bluetooth/{}'.format(
             _bluetooth_dir_name(section)))
+        print('IdentityResolvingKey')
+        print('  Key: {}'.format(
+            _format_csrk(config[section]['IRK'])))
         print('LongTermKey')
         print('  Key: {}'.format(_format_ltk(config[section]['LTK'])))
         print('  EncSize: 16')
         print('  EDiv: {}'.format(_format_ediv(config[section]['EDIV'])))
         print('  Rand: {}'.format(_format_erand(config[section]['ERand'])))
-        print('LocalSignatureKey')
-        print('  Key: {}'.format(
-            _format_csrk(config[section]['CSRK'])))
+       
         print('\n====================================\n')
 
 
@@ -95,11 +96,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-# reg_str = reg_file_to_str('/home/mark/Desktop/BTKeys.reg')
-# file_path_to_dict(reg_str)
-
-
-
-# Print
