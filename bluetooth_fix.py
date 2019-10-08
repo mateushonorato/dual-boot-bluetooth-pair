@@ -6,7 +6,7 @@ def _parse_args():
     """Parse arguments."""
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        '--reg_path', help='Path to reg file.', default='/media/mateus/Windows/Windows/System32/config/SYSTEM')
+        '--reg_path', help='Path to reg file.', default='/media/$USER/Windows/Windows/System32/config/SYSTEM')
 
     return parser.parse_args()
 
